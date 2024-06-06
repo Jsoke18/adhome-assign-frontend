@@ -16,8 +16,11 @@ This is the frontend application for the job management system, built with React
 - [Directory Structure](#directory-structure)
 
 ## Installation
-1. Clone the repository:
+1. Clone the repository: 
 
+```bash
+git clone https://github.com/Jsoke18/adhome-assign-frontend.git
+```
 2. Install frontend dependencies: 
 
 ```bash
