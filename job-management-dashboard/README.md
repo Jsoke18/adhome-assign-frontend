@@ -72,7 +72,6 @@ The project's directory structure is organized as follows:
  ┣ 📂src
  ┃ ┣ 📂components
  ┃ ┃ # This directory contains components for the job table, new job form, and viewing the job details.
- ┃ ┃ ┣ 📜AddJobModal.js
  ┃ ┃ ┣ 📜JobDetails.js
  ┃ ┃ ┣ 📜JobList.js
  ┃ ┃ ┗ 📜StatusTag.js

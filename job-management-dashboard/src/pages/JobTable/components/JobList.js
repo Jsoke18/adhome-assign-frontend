@@ -7,10 +7,14 @@ import React, { useEffect, useState } from "react";
 import {
   Table,
   message,
+  Space,
   Button,
   Drawer,
   Popconfirm,
-  Form
+  Modal,
+  Form,
+  Input,
+  DatePicker,
 } from "antd";
 import {
   fetchJobs,
@@ -21,7 +25,6 @@ import {
 import JobDetails from "./JobDetails";
 import StatusTag from "./StatusTag";
 import dayjs from "dayjs";
-import AddJobModal from "./AddJobModal";
 
 const JobList = () => {
   const [jobs, setJobs] = useState([]);
@@ -213,14 +216,57 @@ const JobList = () => {
           />
         ) : null}
       </Drawer>
-      <AddJobModal
-      visible={isAddingJob}
-      onCancel={() => setIsAddingJob(false)}
-      onOk={handleAddJob}
-      form={form}
-    />
+      <Modal
+        title="Add New Job"
+        visible={isAddingJob}
+        onCancel={() => setIsAddingJob(false)}
+        onOk={handleAddJob}
+      >
+        <Form form={form} layout="vertical">
+          <Form.Item
+            name="customerName"
+            label="Customer Name"
+            rules={[{ required: true, message: "Please enter customer name" }]}
+          >
+            <Input placeholder="Customer Name" />
+          </Form.Item>
+          <Form.Item
+            name="jobType"
+            label="Job Type"
+            rules={[{ required: true, message: "Please enter job type" }]}
+          >
+            <Input placeholder="Job Type" />
+          </Form.Item>
+          <Form.Item
+  name="appointmentDate"
+  label="Appointment Date and Time"
+  rules={[
+    {
+      required: true,
+      message: "Please select appointment date and time",
+    },
+  ]}
+>
+  <DatePicker
+    showTime
+    format="YYYY-MM-DD hh:mm A" // Change this line
+    style={{ width: "100%" }}
+  />
+</Form.Item>
+          <Form.Item
+            name="technician"
+            label="Technician"
+            rules={[
+              { required: true, message: "Please enter technician name" },
+            ]}
+          >
+            <Input placeholder="Technician" />
+          </Form.Item>
+        </Form>
+      </Modal>
     </div>
   );
 };
 
 export default JobList;
+ 
