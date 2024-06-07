@@ -1,7 +1,7 @@
 /**
  * The Joblist component displays all services within a table. The user can view the details of a service, delete a service, and add a new service.
  * @returns {JSX.Element} The rendered job list.
-*/
+ */
 
 import React, { useEffect, useState } from "react";
 import {
@@ -39,10 +39,10 @@ const JobList = () => {
     loadJobs();
   }, []);
 
-/**
-* Loads the list of jobs.
-* @returns {Promise<void>} A promise that resolves when the jobs are loaded.
-*/
+  /**
+   * Loads the list of jobs.
+   * @returns {Promise<void>} A promise that resolves when the jobs are loaded.
+   */
 
   const loadJobs = async () => {
     setLoading(true);
@@ -57,10 +57,10 @@ const JobList = () => {
   };
 
   /**
-  * Handles viewing the details of a job.
-  * @param {string} id - The ID of the job to view.
-  * @returns {Promise<void>} A promise that resolves when the job details are fetched.
-  */
+   * Handles viewing the details of a job.
+   * @param {string} id - The ID of the job to view.
+   * @returns {Promise<void>} A promise that resolves when the job details are fetched.
+   */
   const handleViewDetails = async (id) => {
     console.log("ID:", id);
     setVisibleDrawer(true);
@@ -104,7 +104,7 @@ const JobList = () => {
   /**
    * Handles adding a new job.
    * @returns {Promise<void>} A promise that resolves when the job is added.
-  */
+   */
   const handleAddJob = async () => {
     try {
       const values = await form.validateFields();
@@ -238,21 +238,21 @@ const JobList = () => {
             <Input placeholder="Job Type" />
           </Form.Item>
           <Form.Item
-  name="appointmentDate"
-  label="Appointment Date and Time"
-  rules={[
-    {
-      required: true,
-      message: "Please select appointment date and time",
-    },
-  ]}
->
-  <DatePicker
-    showTime
-    format="YYYY-MM-DD hh:mm A" // Change this line
-    style={{ width: "100%" }}
-  />
-</Form.Item>
+            name="appointmentDate"
+            label="Appointment Date and Time"
+            rules={[
+              {
+                required: true,
+                message: "Please select appointment date and time",
+              },
+            ]}
+          >
+            <DatePicker
+              showTime
+              format="YYYY-MM-DD hh:mm A" // Change this line
+              style={{ width: "100%" }}
+            />
+          </Form.Item>
           <Form.Item
             name="technician"
             label="Technician"
@@ -269,4 +269,3 @@ const JobList = () => {
 };
 
 export default JobList;
- 
